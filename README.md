@@ -5,7 +5,10 @@
    *Install [python](https://www.python.org/downloads/release/python-391/)
  
  
-   *Create your venv : 
+   *Create your venv in the same directory of the project : 
  ```bash
 python -m venv .
 ```
+
+   *open the project with vscode or any idle.
+   *asd
