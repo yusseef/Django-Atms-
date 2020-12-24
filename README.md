@@ -17,5 +17,23 @@ python -m venv .
      ```bash
      ./Scripts/activate .
                     ```
+                    
+   *install the requirments:
+     ```bash
+      pip install requirments.txt
+                    ```
+   *make the migrations:
+      ```bash
+      python manage.py makemigrations
+                    ```
+                    
+      ```bash
+      python manage.py migrate
+                    ```
+   *run the server:
+       ```bash
+      python manage.py runserver
+                    ```
+     
 
  
