@@ -11,4 +11,11 @@ python -m venv .
 ```
 
    *open the project with vscode or any idle.
-   *asd
+   
+   
+   *open the terminal and activate venv :
+    ```bash
+./Scripts/activate .
+```
+
+    *then install django :
