@@ -14,8 +14,8 @@ python -m venv .
    
    
    *open the terminal and activate venv :
-    ```bash
-./Scripts/activate .
-```
+     ```bash
+     ./Scripts/activate .
+                    ```
 
-    *then install django :
+ 
