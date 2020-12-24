@@ -34,6 +34,9 @@ python -m venv .
      ```bash
       python manage.py migrate
                     ```
+   
+   
+   
    *run the server:
        ```bash
       python manage.py runserver
