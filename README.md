@@ -22,12 +22,16 @@ python -m venv .
      ```bash
       pip install requirments.txt
                     ```
+                    
+                    
    *make the migrations:
       ```bash
       python manage.py makemigrations
                     ```
                     
-      ```bash
+     
+   *migrate:  
+     ```bash
       python manage.py migrate
                     ```
    *run the server:
