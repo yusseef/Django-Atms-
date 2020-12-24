@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %} My Profile {% endblock %}
+
+{% block content %}
+<div>
+<img src="{{ my_profile.profile_img.url }}" style="border:2px solid black" width="250">
+</div>
+
+<form enctype="multipart/form-data" method="post">{% csrf_token %}
+    <div class="form-group">
+<input type="file" name="user_img" class="form-control-file">
+    </div>
+<div>
+<button type="submit"class="btn btn-success"><i class="fas fa-save"></i>submit</button>
+</div>
+</form>
+
+{% endblock %}

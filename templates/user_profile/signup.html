@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %} Signup {% endblock %}
+
+{% block content %}
+
+<h2>signup</h2>
+<form action="." method="post" autocomplete="off"> {% csrf_token %}
+    {{ form.username|as_crispy_field }}
+	{{ form.email|as_crispy_field }}
+	{{ form.password|as_crispy_field }}
+	
+    <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Submit</button>
+</form>
+
+
+
+	
+</form>
+
+
+
+{% endblock %}
