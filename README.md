@@ -43,20 +43,7 @@ python -m venv .
                     ```
 
 
-                     <div class="container">
-        <div class="col-md-10 offset-md-1 mt-5">
-            <div class="jumbotron">
-                
-                <hr class="my-4">
-                {% block content %} 
-                {% endblock content %}
-              </div>
-
-
-        </div>
-
-
-    </div>
+   
      
 
  
