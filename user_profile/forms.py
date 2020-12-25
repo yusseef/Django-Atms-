@@ -1,6 +1,9 @@
 from django.contrib.auth import get_user_model
 from django import forms
 User = get_user_model()
+from user_profile.models import LeaveApplication
+from django.contrib.auth.forms import UserCreationForm
+
 class RegisterForm(forms.Form):
     username = forms.CharField(max_length=20)
     email = forms.EmailField()
@@ -8,8 +11,10 @@ class RegisterForm(forms.Form):
         label = "password",
         widget = forms.PasswordInput()
     )
+    
 
 class SigninForm(forms.Form):
+
     username = forms.CharField(max_length=20)
     password = forms.CharField(
         label = "password",
@@ -24,3 +29,20 @@ class SigninForm(forms.Form):
 
 class Img(forms.Form):
     img = forms.ImageField()
+
+
+class LeaveForm(forms.ModelForm):
+    
+
+    class Meta:
+        model = LeaveApplication
+        fields = ('reason',)
+
+        widgets = {
+            'reason' : forms.TextInput
+        }
+
+      
+
+
+

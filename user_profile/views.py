@@ -5,10 +5,10 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.files.storage import FileSystemStorage
 from django.contrib.auth.models import User
-from .models import UserProfile
+from .models import UserProfile, LeaveApplication, AllLogin,AllLogout
 from django.conf import settings
 import os
-from .forms import RegisterForm, SigninForm
+from .forms import RegisterForm, SigninForm,LeaveForm
 
 
 def home(request):
@@ -34,6 +34,9 @@ def user_signup(request):
 			messages.add_message(request, messages.ERROR, 'Unable to sign up.')
 			return render(request, 'user_profile/signup.html')
 	return render(request, 'user_profile/signup.html', {'form': form})
+		
+
+
 
 
 
@@ -44,7 +47,9 @@ def user_login(request):
 		password = form.cleaned_data.get("password")
 		user = authenticate(request, username=username, password=password)
 		if user!=1 :
+
 			login(request, user)
+			AllLogin.objects.create(user= request.user)
 			return redirect("home")
 		else:
 			request.session['invalid_error'] = 1
@@ -55,6 +60,8 @@ def user_login(request):
 def user_logout(request):
 	try:
 		logout(request)
+		AllLogout.objects.create(user=request.user)
+		
 		messages.add_message(request, messages.INFO, 'You\'re logged Out!')
 	except:
 		messages.add_message(request, messages.ERROR, "Unable to log out.")
@@ -84,3 +91,37 @@ def user_profile(request, user_id):
 		user_profile = UserProfile.objects.get(id=user_id)
 
 		return render(request, 'user_profile/my_profile.html', {'my_profile': user_profile})
+
+
+
+
+def LeaveApp(request):
+	form = LeaveForm(request.POST or None )
+	emp = User.objects.filter(username=request.user).first()
+	if form.is_valid():
+		form.instance.user =emp
+		form.save()
+		
+		
+	
+	context = {'form': form}
+	
+	return render(request, 'user_profile/leavingApp.html', context)
+	
+
+	
+
+		
+
+def ShowResp(request):
+	emp = User.objects.filter(username=request.user).first()
+	app = LeaveApplication.objects.filter(user=emp).all()
+
+	context = { 'app':app }
+	return render(request,'user_profile/showresp.html',context)
+
+
+
+
+
+

@@ -9,11 +9,22 @@
 <h3 class="display-5"> welcome {{ user.username }}</h3>
 <br>
 <a href="{% url 'profile' user_id=user.id %}" class="btn btn-outline-success"><i class="far fa-id-badge"></i> My Profile</a>
+<a href="{% url 'leaveapp'  %}" class="btn btn-outline-success"><i class="far fa-id-badge"></i> make a leave</a>
+
 <a href="{% url 'logout' %}" class="btn btn-outline-danger"><i class="fas fa-sign-out-alt"></i></i></a>
+
 {% else %}
-<a href="{% url 'signup' %}">signup</a>
-<a href="{% url 'login' %}">login</a>
+<h3> New user 
+<a href="{% url 'signup' %}">Sign up</a></h3>
+<br> 
+<br>
+<h3> Already has an account
+<a href="{% url 'login' %}">Login</a> </h3>
 {% endif %}
 
 
 {% endblock %}
+
+
+
+

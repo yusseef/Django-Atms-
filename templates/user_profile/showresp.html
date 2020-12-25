@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>
+Welcome Student {{user.username}}
+</h2>
+
+
+
+<div class="row">
+
+    <div class="col-md-6" style="margin-left: 200px;">
+    
+    <table>
+        <thead>
+            <tr>
+              <th><strong> Response for your leave applications<br> <br> </strong></th>
+              
+            </tr>
+            
+          </thead>
+               
+          <tbody>
+               
+            <tr>
+
+            <td>
+
+                
+                   {% for s in app %}
+
+                Your Leave response is {{s.status}}
+
+                <br><br><br>
+
+                {% endfor %}
+
+             
+
+                <br>
+
+               
+
+            </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+
+{% endblock %}
